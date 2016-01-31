@@ -82,29 +82,11 @@ extern "C" {
 #warning RegexKitLite support for Blocks is enabled, but __BLOCKS__ is not defined.  This compiler may not support Blocks, in which case the behavior is undefined.  This will probably cause numerous compiler errors.
 #endif // defined(_RKL_BLOCKS_ENABLED) && !defined(__BLOCKS__)
 
-// For Mac OS X < 10.5.
-#ifndef   NSINTEGER_DEFINED
-#define   NSINTEGER_DEFINED
-#if       defined(__LP64__) || defined(NS_BUILD_32_LIKE_64)
-typedef long           NSInteger;
-typedef unsigned long  NSUInteger;
-#define NSIntegerMin   LONG_MIN
-#define NSIntegerMax   LONG_MAX
-#define NSUIntegerMax  ULONG_MAX
-#else  // defined(__LP64__) || defined(NS_BUILD_32_LIKE_64)
-typedef int            NSInteger;
-typedef unsigned int   NSUInteger;
-#define NSIntegerMin   INT_MIN
-#define NSIntegerMax   INT_MAX
-#define NSUIntegerMax  UINT_MAX
-#endif // defined(__LP64__) || defined(NS_BUILD_32_LIKE_64)
-#endif // NSINTEGER_DEFINED
-
 #ifndef   RKLREGEXOPTIONS_DEFINED
 #define   RKLREGEXOPTIONS_DEFINED
 
-// These must be identical to their ICU regex counterparts. See http://www.icu-project.org/userguide/regexp.html
-enum {
+/// These must be identical to their ICU regex counterparts. See http://www.icu-project.org/userguide/regexp.html
+typedef NS_OPTIONS(uint32_t, RKLRegexOptions) {
   RKLNoOptions             = 0,
   RKLCaseless              = 2,
   RKLComments              = 4,
@@ -112,20 +94,18 @@ enum {
   RKLMultiline             = 8,
   RKLUnicodeWordBoundaries = 256
 };
-typedef uint32_t RKLRegexOptions; // This must be identical to the ICU 'flags' argument type.
 
 #endif // RKLREGEXOPTIONS_DEFINED
 
 #ifndef   RKLREGEXENUMERATIONOPTIONS_DEFINED
 #define   RKLREGEXENUMERATIONOPTIONS_DEFINED
 
-enum {
+typedef NS_OPTIONS(NSUInteger, RKLRegexEnumerationOptions) {
   RKLRegexEnumerationNoOptions                               = 0UL,
   RKLRegexEnumerationCapturedStringsNotRequired              = 1UL << 9,
   RKLRegexEnumerationReleaseStringReturnedByReplacementBlock = 1UL << 10,
   RKLRegexEnumerationFastCapturedStringsXXX                  = 1UL << 11,
 };
-typedef NSUInteger RKLRegexEnumerationOptions;
   
 #endif // RKLREGEXENUMERATIONOPTIONS_DEFINED
 
