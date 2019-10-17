@@ -10,14 +10,16 @@
 		55D15BEC2357E05B00D97F38 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D15BEA2357E05B00D97F38 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55D15BF32357E0AE00D97F38 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D15BF22357E0AE00D97F38 /* RegexKitLite.m */; };
 		55D15BF62357E2AF00D97F38 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D15BF52357E2AF00D97F38 /* libicucore.tbd */; };
+		55D15C022357F4C400D97F38 /* RegexKitLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D15C012357F4C400D97F38 /* RegexKitLite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55D15BE72357E05B00D97F38 /* RegexKitLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RegexKitLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D15BEA2357E05B00D97F38 /* RegexKitLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		55D15BEA2357E05B00D97F38 /* RegexKitLite.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; usesTabs = 0; };
 		55D15BEB2357E05B00D97F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D15BF22357E0AE00D97F38 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		55D15BF22357E0AE00D97F38 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; usesTabs = 0; };
 		55D15BF52357E2AF00D97F38 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		55D15C012357F4C400D97F38 /* RegexKitLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexKitLite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				55D15BEA2357E05B00D97F38 /* RegexKitLite.h */,
 				55D15BF22357E0AE00D97F38 /* RegexKitLite.m */,
 				55D15BEB2357E05B00D97F38 /* Info.plist */,
+				55D15C012357F4C400D97F38 /* RegexKitLite.swift */,
 			);
 			name = RegexKitLite;
 			sourceTree = "<group>";
@@ -110,6 +113,7 @@
 				TargetAttributes = {
 					55D15BE62357E05B00D97F38 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -146,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D15C022357F4C400D97F38 /* RegexKitLite.swift in Sources */,
 				55D15BF32357E0AE00D97F38 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,12 +280,14 @@
 		55D15BF02357E05B00D97F38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,6 +299,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.MaddTheSane.RegexKitLite;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -299,12 +307,14 @@
 		55D15BF12357E05B00D97F38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

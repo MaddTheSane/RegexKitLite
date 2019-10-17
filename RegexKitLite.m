@@ -299,7 +299,7 @@ enum {
   RKLUnlockedCacheSpinLock = 1UL << 1,
 };
 
-enum {
+typedef NS_OPTIONS(NSUInteger, RKLRegexOp) {
   RKLSplitOp                         = 1UL,
   RKLReplaceOp                       = 2UL,
   RKLRangeOp                         = 3UL,
@@ -312,13 +312,11 @@ enum {
   RKLReplaceMutable                  = 1UL << 4,
   RKLSubcapturesArray                = 1UL << 5,
 };
-typedef NSUInteger RKLRegexOp;
 
-enum {
+typedef NS_ENUM(NSUInteger, RKLBlockEnumerationOp) {
   RKLBlockEnumerationMatchOp   = 1UL,
   RKLBlockEnumerationReplaceOp = 2UL,
 };
-typedef NSUInteger RKLBlockEnumerationOp;
 
 typedef struct {
   RKL_STRONG_REF NSRange    * RKL_GC_VOLATILE ranges;
@@ -2641,7 +2639,7 @@ exitNow2:
 {
   NSUInteger errorFree     = 0UL;
   NSInteger replacedCount  = -1L;
-  NSString *replacedString = rkl_performEnumerationUsingBlock(self, _cmd, (RKLRegexOp)RKLCapturesArrayOp, regex, options,      self, range,         (RKLBlockEnumerationOp)RKLBlockEnumerationReplaceOp, enumerationOptions, &replacedCount, &errorFree, error, NULL, block);
+  NSString *replacedString = rkl_performEnumerationUsingBlock(self, _cmd, RKLCapturesArrayOp, regex, options,      self, range,         RKLBlockEnumerationReplaceOp, enumerationOptions, &replacedCount, &errorFree, error, NULL, block);
   if((errorFree == YES) && (replacedCount > 0L)) { [self replaceCharactersInRange:range withString:replacedString]; }
   return(replacedCount);
 }
